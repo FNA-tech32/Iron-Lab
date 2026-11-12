@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Iron Lab - Fitness, Workouts & Nutrition</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #e63946;
+      --primary-hover: #c92a37;
+      --bg-dark: #12141a;
+      --card-bg: #1c1f28;
+      --card-alt: #242936;
+      --text-main: #f1f5f9;
+      --text-muted: #94a3b8;
+      --border-color: #334155;
+      --accent: #ff4d5a;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      font-family: 'Roboto', -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    a {
+      color: var(--text-main);
+      text-decoration: none;
+      transition: color 0.25s ease;
+    }
+
+    a:hover {
+      color: var(--primary);
+    }
+
+    /* TOP NAVIGATION */
+    .navbar {
+      background-color: rgba(18, 20, 26, 0.95);
+      border-bottom: 1px solid var(--border-color);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .brand-logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      color: #ffffff;
+      text-transform: uppercase;
+    }
+
+    .brand-logo span {
+      color: var(--primary);
+    }
+
+    .brand-logo img {
+      height: 38px;
+      width: auto;
+      object-fit: contain;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 20px;
+      list-style: none;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links li a {
+      font-size: 14px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: #cbd5e1;
+      padding: 6px 10px;
+      border-radius: 4px;
+      transition: all 0.2s ease;
+    }
+
+    .nav-links li a:hover,
+    .nav-links li a.active {
+      color: #ffffff;
+      background-color: rgba(230, 57, 70, 0.18);
+    }
+
+    /* HERO SECTION */
+    .hero-banner {
+      background: linear-gradient(135deg, rgba(20, 24, 33, 0.92), rgba(30, 36, 48, 0.88)), url('images/y.jpg') center/cover no-repeat;
+      padding: 60px 24px 45px;
+      text-align: center;
+      border-bottom: 1px solid var(--border-color);
+    }
+
+    .hero-banner h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 42px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      margin-bottom: 12px;
+    }
+
+    .hero-banner h1 span {
+      color: var(--primary);
+    }
+
+    .hero-banner p {
+      font-size: 17px;
+      color: var(--text-muted);
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* MAIN CONTENT CONTAINER */
+    .main-wrap {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 24px;
+      flex: 1;
+      width: 100%;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      gap: 36px;
+    }
+
+    /* CONTACT INFO PANEL */
+    .contact-info-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 36px 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .contact-info-card h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      color: #ffffff;
+    }
+
+    .info-intro {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 28px;
+      line-height: 1.6;
+    }
+
+    .info-block {
+      margin-bottom: 26px;
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+    }
+
+    .info-icon {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      background-color: rgba(230, 57, 70, 0.12);
+      border: 1px solid rgba(230, 57, 70, 0.3);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      color: var(--primary);
+    }
+
+    .info-text h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 15px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 4px;
+      color: #f8fafc;
+    }
+
+    .info-text p, .info-text a {
+      font-size: 14px;
+      color: #cbd5e1;
+      line-height: 1.5;
+      display: block;
+    }
+
+    .info-text .tag-label {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 2px 7px;
+      border-radius: 4px;
+      margin-right: 6px;
+      margin-top: 4px;
+    }
+
+    .tag-primary {
+      background-color: rgba(230, 57, 70, 0.2);
+      color: #ff7582;
+      border: 1px solid rgba(230, 57, 70, 0.4);
+    }
+
+    .tag-alt {
+      background-color: rgba(59, 130, 246, 0.2);
+      color: #93c5fd;
+      border: 1px solid rgba(59, 130, 246, 0.4);
+    }
+
+    .hours-list {
+      list-style: none;
+      font-size: 13px;
+      color: #cbd5e1;
+      margin-top: 4px;
+    }
+
+    .hours-list li {
+      display: flex;
+      justify-content: space-between;
+      padding: 3px 0;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+    }
+
+    .hours-list li:last-child {
+      border-bottom: none;
+    }
+
+    /* FORM PANEL */
+    .form-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 36px 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+    }
+
+    .form-card h2 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 8px;
+      color: #ffffff;
+    }
+
+    .form-card p.form-subtitle {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .form-group-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .form-group {
+      margin-bottom: 18px;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 13px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      margin-bottom: 6px;
+      color: #e2e8f0;
+    }
+
+    .form-control {
+      width: 100%;
+      background-color: var(--card-alt);
+      border: 1.5px solid #3b4455;
+      border-radius: 6px;
+      color: #ffffff;
+      padding: 12px 14px;
+      font-size: 14px;
+      font-family: inherit;
+      outline: none;
+      transition: all 0.25s ease;
+    }
+
+    .form-control:focus {
+      border-color: var(--primary);
+      box-shadow: 0 0 0 3px rgba(230, 57, 70, 0.25);
+      background-color: #2a3140;
+    }
+
+    select.form-control {
+      cursor: pointer;
+    }
+
+    select.form-control option {
+      background-color: #1c1f28;
+      color: #ffffff;
+    }
+
+    textarea.form-control {
+      resize: vertical;
+      min-height: 130px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      background-color: var(--primary);
+      color: #ffffff;
+      border: none;
+      border-radius: 6px;
+      padding: 14px;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      box-shadow: 0 4px 14px rgba(230, 57, 70, 0.4);
+    }
+
+    .submit-btn:hover {
+      background-color: var(--primary-hover);
+      box-shadow: 0 6px 20px rgba(230, 57, 70, 0.6);
+      transform: translateY(-1px);
+    }
+
+    .submit-btn:active {
+      transform: translateY(0);
+    }
+
+    /* CONFIRMATION POPUP / ALERT */
+    #confirmationMessage {
+      display: none;
+      background-color: rgba(34, 197, 94, 0.15);
+      border: 1px solid #22c55e;
+      color: #86efac;
+      padding: 16px;
+      border-radius: 6px;
+      margin-bottom: 20px;
+      font-size: 14px;
+      text-align: center;
+      line-height: 1.5;
+    }
+
+    /* SUPPORT CARDS STRIP */
+    .quick-support-bar {
+      margin-top: 50px;
+      background: var(--card-bg);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 24px;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      text-align: center;
+    }
+
+    .quick-card {
+      padding: 16px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.02);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+    }
+
+    .quick-card h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 16px;
+      margin-bottom: 6px;
+      color: #ffffff;
+    }
+
+    .quick-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 10px;
+    }
+
+    .quick-card a.btn-link {
+      color: var(--primary);
+      font-size: 13px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+    }
+
+    .quick-card a.btn-link:hover {
+      text-decoration: underline;
+    }
+
+    /* FOOTER */
+    footer {
+      background-color: #0b0d11;
+      border-top: 1px solid var(--border-color);
+      padding: 40px 24px 30px;
+      margin-top: 60px;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-brand {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 1.5px;
+      margin-bottom: 12px;
+    }
+
+    .footer-brand span {
+      color: var(--primary);
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      list-style: none;
+      flex-wrap: wrap;
+      margin-bottom: 20px;
+    }
+
+    .footer-links a {
+      color: var(--text-muted);
+      font-size: 13px;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+    }
+
+    .footer-links a:hover {
+      color: #ffffff;
+    }
+
+    .copyright {
+      font-size: 13px;
+      color: #64748b;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 860px) {
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      .hero-banner h1 {
+        font-size: 32px;
+      }
+      .form-group-row {
+        grid-template-columns: 1fr;
+      }
+      .nav-container {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+      .nav-links {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP NAVIGATION -->
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="index.html" class="brand-logo">
+        <img src="images/logo.png" alt="Iron Lab Logo">
+        IRON <span>LAB</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="exersisemain.html">Exercise</a></li>
+        <li><a href="gym.html">Gym</a></li>
+        <li><a href="all workout.html">Workouts</a></li>
+        <li><a href="yoga.html">Yoga</a></li>
+        <li><a href="plandiet.html">Diet Plan</a></li>
+        <li><a href="bmi.html">Calculators</a></li>
+        <li><a href="FAQ.html">FAQ</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO BANNER -->
+  <header class="hero-banner">
+    <h1>CONTACT <span>IRON LAB</span></h1>
+    <p>Reach out to our athletic trainers, nutrition advisors, and support team. We're here to fuel your transformation with primary and alternative communication channels.</p>
+  </header>
+
+  <!-- MAIN CONTACT CONTENT -->
+  <main class="main-wrap">
+
+    <div class="contact-grid">
+
+      <!-- LEFT: DETAILED CONTACT DETAILS & ALTERNATIVE DETAILS -->
+      <section class="contact-info-card">
+        <h2>Direct Details</h2>
+        <p class="info-intro">Whether you have questions regarding customized workout routines, diet plans, technical inquiries, or facility memberships, use any of our verified contacts below.</p>
+
+        <!-- EMAIL CHANNELS -->
+        <div class="info-block">
+          <div class="info-icon">&#9993;</div>
+          <div class="info-text">
+            <h3>Email Support</h3>
+            <p>
+              <span class="tag-label tag-primary">Primary</span>
+              <a href="mailto:contact@ironlab.com">contact@ironlab.com</a>
+            </p>
+            <p>
+              <span class="tag-label tag-alt">Alternative</span>
+              <a href="mailto:support@ironlab.com">support@ironlab.com</a>
+            </p>
+            <p>
+              <span class="tag-label tag-alt">Alternative</span>
+              <a href="mailto:ironlab.fitness@gmail.com">ironlab.fitness@gmail.com</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- TELEPHONE CHANNELS -->
+        <div class="info-block">
+          <div class="info-icon">&#9742;</div>
+          <div class="info-text">
+            <h3>Phone & Hotline</h3>
+            <p>
+              <span class="tag-label tag-primary">Primary Toll-Free</span>
+              <a href="tel:+18005554766">+1 (800) 555-IRON (4766)</a>
+            </p>
+            <p>
+              <span class="tag-label tag-alt">Alternative Line</span>
+              <a href="tel:+15550194766">+1 (555) 019-4766</a>
+            </p>
+            <p>
+              <span class="tag-label tag-alt">Member Hotline</span>
+              <a href="tel:+12125550142">+1 (212) 555-0142</a>
+            </p>
+          </div>
+        </div>
+
+        <!-- PHYSICAL LOCATIONS -->
+        <div class="info-block">
+          <div class="info-icon">&#128205;</div>
+          <div class="info-text">
+            <h3>Locations & Headquarters</h3>
+            <p style="margin-bottom: 8px;">
+              <span class="tag-label tag-primary">Headquarters</span><br>
+              <strong>Iron Lab Performance Center</strong><br>
+              100 Iron Works Way, Suite 400<br>
+              New York, NY 10001, USA
+            </p>
+            <p>
+              <span class="tag-label tag-alt">Alternative Hub</span><br>
+              <strong>Iron Lab West Coast Studio</strong><br>
+              450 Athletic Blvd, Suite 210<br>
+              Los Angeles, CA 90015, USA
+            </p>
+          </div>
+        </div>
+
+        <!-- OPERATING HOURS -->
+        <div class="info-block">
+          <div class="info-icon">&#128340;</div>
+          <div class="info-text" style="width: 100%;">
+            <h3>Operating Hours (EST)</h3>
+            <ul class="hours-list">
+              <li><span>Monday – Friday:</span> <strong>5:00 AM – 11:00 PM</strong></li>
+              <li><span>Saturday – Sunday:</span> <strong>7:00 AM – 9:00 PM</strong></li>
+              <li><span>Public Holidays:</span> <strong>8:00 AM – 6:00 PM</strong></li>
+              <li><span>Online Member Portal:</span> <strong style="color: #4ade80;">24/7 Available</strong></li>
+            </ul>
+          </div>
+        </div>
+
+      </section>
+
+      <!-- RIGHT: INTERACTIVE CONTACT FORM -->
+      <section class="form-card">
+        <h2>Send Us A Message</h2>
+        <p class="form-subtitle">Fill in the form below and an Iron Lab fitness coordinator will get back to you within 24 hours.</p>
+
+        <div id="confirmationMessage">
+          <strong>Thank you for contacting Iron Lab!</strong><br>
+          Your message has been logged under reference <span id="refCode">#IL-8492</span>. Our team will reply shortly to your provided email address.
+        </div>
+
+        <form id="ironContactForm" onsubmit="handleContactSubmit(event)">
+          
+          <div class="form-group-row">
+            <div class="form-group">
+              <label for="contactName">Full Name *</label>
+              <input type="text" id="contactName" name="name" class="form-control" placeholder="John Doe" required>
+            </div>
+            <div class="form-group">
+              <label for="contactEmail">Email Address *</label>
+              <input type="email" id="contactEmail" name="email" class="form-control" placeholder="john@example.com" required>
+            </div>
+          </div>
+
+          <div class="form-group-row">
+            <div class="form-group">
+              <label for="contactPhone">Phone / Mobile (Optional)</label>
+              <input type="tel" id="contactPhone" name="phone" class="form-control" placeholder="+1 (555) 000-0000">
+            </div>
+            <div class="form-group">
+              <label for="inquiryType">Topic / Department *</label>
+              <select id="inquiryType" name="inquiryType" class="form-control" required>
+                <option value="General Inquiry">General Inquiry</option>
+                <option value="Workout Routine Advice">Workout Routine Advice</option>
+                <option value="Diet & Nutrition Planning">Diet & Nutrition Planning</option>
+                <option value="Calculators Feedback">Calculators Feedback</option>
+                <option value="Membership & Studio">Membership & Studio</option>
+                <option value="Partnership & Press">Partnership & Press</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="contactSubject">Subject *</label>
+            <input type="text" id="contactSubject" name="subject" class="form-control" placeholder="How can Iron Lab help you?" required>
+          </div>
+
+          <div class="form-group">
+            <label for="contactMessage">Message / Questions *</label>
+            <textarea id="contactMessage" name="message" class="form-control" placeholder="Provide details on your goals, feedback, or inquiry..." required></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn" id="submitBtn">Submit To Iron Lab</button>
+        </form>
+      </section>
+
+    </div>
+
+    <!-- QUICK SUPPORT CARDS STRIP -->
+    <div class="quick-support-bar">
+      <div class="quick-card">
+        <h4>Looking for Answers?</h4>
+        <p>Check our comprehensive answers to frequently asked workout and yoga questions.</p>
+        <a href="FAQ.html" class="btn-link">Read FAQ &rarr;</a>
+      </div>
+      <div class="quick-card">
+        <h4>Fitness Calculators</h4>
+        <p>Instant calculations for Body Mass Index (BMI), Daily Calorie needs, and Nutrition targets.</p>
+        <a href="bmi.html" class="btn-link">Calculate Now &rarr;</a>
+      </div>
+      <div class="quick-card">
+        <h4>Plan Your Diet</h4>
+        <p>Explore customized meal guidance and balanced diet charts for maximum results.</p>
+        <a href="plandiet.html" class="btn-link">Explore Diet Plans &rarr;</a>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-brand">IRON <span>LAB</span></div>
+      <ul class="footer-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="exersisemain.html">Exercise</a></li>
+        <li><a href="gym.html">Gym</a></li>
+        <li><a href="all workout.html">Workouts</a></li>
+        <li><a href="yoga.html">Yoga</a></li>
+        <li><a href="plandiet.html">Diet</a></li>
+        <li><a href="FAQ.html">FAQ</a></li>
+        <li><a href="disclaimer.html">Disclaimer</a></li>
+        <li><a href="terms and conditions.html">Terms & Conditions</a></li>
+      </ul>
+      <p class="copyright">
+        &copy; 2026 Iron Lab. All Rights Reserved.<br>
+        Primary Contact: <a href="mailto:contact@ironlab.com" style="color: #94a3b8;">contact@ironlab.com</a> | Alternative Support: <a href="mailto:support@ironlab.com" style="color: #94a3b8;">support@ironlab.com</a> | Tel: <a href="tel:+18005554766" style="color: #94a3b8;">+1 (800) 555-IRON</a>
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    function handleContactSubmit(e) {
+      e.preventDefault();
+      const form = document.getElementById('ironContactForm');
+      const confirmBox = document.getElementById('confirmationMessage');
+      const refSpan = document.getElementById('refCode');
+      const randomCode = 'IL-' + Math.floor(1000 + Math.random() * 9000);
+
+      refSpan.textContent = '#' + randomCode;
+      confirmBox.style.display = 'block';
+      confirmBox.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+      form.reset();
+    }
+  </script>
+</body>
+</html>
